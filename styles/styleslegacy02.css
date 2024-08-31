@@ -222,7 +222,7 @@
   .fourthSectionContainer {
     background-image: url("https://github.githubassets.com/images/modules/site/home/hero-glow.svg");
     padding-top: 50px;
-    min-height: 100vh;
+    min-height: 70vh;
     height: auto;
   }
   .sectionFourthPros {
@@ -491,7 +491,7 @@ background-size: 100% 100%, 50px 50px, 100px 100px, 150px 150px;
   
   /*FOOTER*/
   .footerContainer {
-    min-height: 100vh;
+    min-height: 90vh;
     height: auto;
     width: 100%;
     background-color: black;

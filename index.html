@@ -15,6 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
       $(document).ready(function () {
+        reveal()
         $( "#formContact" ).on( "submit", function( event ) {
           event.preventDefault();
           $.ajax({
@@ -55,7 +56,7 @@
           <li><a href="#" onclick="scrollToSection(event, 'faqs')">Faqs</a></li>
           <li><img class="logoNav" src="/media/logoheader.png" /></li>
           <li>
-            <a href="#" onclick="scrollToSection(event, 'beneficios')"
+            <a href="#" onclick="scrollToSection(event, 'separator34')"
               >Beneficios</a
             >
           </li>
@@ -65,7 +66,7 @@
             >
           </li>
           <li>
-            <a href="#" onclick="scrollToSection(event, 'contacto')"
+            <a href="#" onclick="scrollToSection(event, 'separator56')"
               >Contacto</a
             >
           </li>
@@ -106,7 +107,7 @@
               >
             </div>
             <div>
-              <a href="#" onclick="scrollToSection(event, 'contacto')"
+              <a href="#" onclick="scrollToSection(event, 'scrollmessage')"
                 >Contacto</a
               >
             </div>
@@ -306,7 +307,7 @@
       </article>
     </section>
     <!--Fín Tercera seccion-->
-
+    <div id="separator34"></div>
         <!--Inicio Cuarta seccion-->
         <section class="fourthSectionContainer reveal" id="beneficios">
             <div class="sectionFourthPros">
@@ -404,12 +405,13 @@
           alt="PlanningTravelAdventures"
         />
       </div>
+      <div id="scrollmessage"></div>
     </section>
     <!--Fín Quinta seccion-->
 
     <div id="separator56"></div>
      <!--Inicio Sexta seccion-->
-     <footer class="footerContainer reveal" id="contacto">
+    <footer class="footerContainer reveal" id="contacto">
       <main class="footerContact">
         <form
         id="formContact"
