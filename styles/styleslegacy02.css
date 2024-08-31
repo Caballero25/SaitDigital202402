@@ -1,0 +1,670 @@
+.faqsThirdSection {
+    padding-top: 25px;
+    padding-bottom: 35px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+    padding-left: 20vw;
+    padding-right: 0vw;
+    z-index: 10;
+  }
+  
+  .faqsThirdSection > :first-child {
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+  }
+  
+  .faqsThirdSection > :last-child {
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+  }
+  
+  .faqsThirdSectioncontainer {
+    border: 1px solid #4a6eb0;
+    border-radius: 7px;
+    background-color: white;
+    margin: 0 auto;
+    padding: 4rem;
+    width: 48rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  
+    &::before,
+    &::after {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  }
+  
+  /********************************************/
+  
+  .faqsThirdSectionaccordion .faqsThirdSectionaccordion-item {
+    border-bottom: 1px solid #e5e5e5;
+  }
+  
+  .faqsThirdSectionaccordion
+    .faqsThirdSectionacordionButton[aria-expanded="true"] {
+    border-bottom: 1px solid rgb(129, 25, 25);
+  }
+  
+  .faqsThirdSectionaccordion .faqsThirdSectionacordionButton {
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    color: #7288a2;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+  
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      color: #04347d;
+  
+      &::after {
+        cursor: pointer;
+        color: #04347d;
+        border: 1px solid #04347d;
+      }
+    }
+  }
+  
+  .faqsThirdSectionaccordion
+    .faqsThirdSectionacordionButton
+    .faqsThirdSectionaccordion-title {
+    padding: 1em 1.5em 1em 0;
+  }
+  
+  .faqsThirdSectionaccordion
+    .faqsThirdSectionacordionButton
+    .faqsThirdSectionicon {
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    border: 1px solid;
+    border-radius: 22px;
+  
+    &::before {
+      display: block;
+      position: absolute;
+      content: "";
+      top: 9px;
+      left: 5px;
+      width: 10px;
+      height: 2px;
+      background: currentColor;
+    }
+  
+    &::after {
+      display: block;
+      position: absolute;
+      content: "";
+      top: 5px;
+      left: 9px;
+      width: 2px;
+      height: 10px;
+      background: currentColor;
+    }
+  }
+  
+  .faqsThirdSectionacordionButton[aria-expanded="true"] {
+    color: #04347d;
+  }
+  
+  .faqsThirdSectionacordionButton[aria-expanded="true"] .icon::after {
+    width: 0;
+  }
+  
+  .faqsThirdSectionacordionButton[aria-expanded="true"]
+    + .faqsThirdSectionaccordion-content {
+    opacity: 1;
+    max-height: 90em;
+    -webkit-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    transition: all 200ms linear;
+    will-change: opacity, max-height;
+  }
+  
+  .faqsThirdSectionaccordion-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: opacity 200ms linear, max-height 200ms linear;
+    -o-transition: opacity 200ms linear, max-height 200ms linear;
+    transition: opacity 200ms linear, max-height 200ms linear;
+    will-change: opacity, max-height;
+  }
+  
+  .faqsThirdSectionaccordion-content p {
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 2em 0;
+  }
+  /**********************************************/
+  
+  .faqsThirdSectionacordionButton:first-child {
+    padding-right: 30px;
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .faqsThirdSection {
+      width: 100%;
+      display: block;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  
+  @media only screen and (max-width: 900px) {
+    .faqsThirdSection {
+      width: 100%;
+      display: block;
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .faqsThirdSectioncontainer {
+      padding: 1rem;
+      width: 90%;
+    }
+  }
+  
+  @media only screen and (max-width: 555px) {
+    .faqsFirstSection {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .faqsFirstSectionTitleContainer p {
+      font-size: 35px;
+    }
+  
+    .faqsFirstSectionImgContainer {
+      width: 180px;
+    }
+  
+    .faqsFirstSectionImgContainer img {
+      width: 100%;
+      height: 253px;
+    }
+  
+    #faqsSecondSection {
+      padding-left: 10px;
+    }
+    #faqsSecondSection ol {
+      display: -ms-grid;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    }
+  
+    .faqsThirdSectioncontainer {
+      padding: 1rem;
+      width: 90%;
+    }
+  }
+  
+  /***FOURTH SECTION ****/
+  .fourthSectionContainer {
+    background-image: url("https://github.githubassets.com/images/modules/site/home/hero-glow.svg");
+    padding-top: 50px;
+    min-height: 100vh;
+    height: auto;
+  }
+  .sectionFourthPros {
+    height: auto;
+    padding-bottom: 50px;
+    padding-top: 70px;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .sectionFourthPros h2 {
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-size: 28px;
+  }
+  .sectionFourthProsSeparator {
+    margin-top: 8px;
+    height: 4px;
+    width: 80%;
+    background-color: #e41010d8;
+  }
+  
+  .sectionFourthSlider {
+    top: 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  
+  .slider {
+    position: relative;
+    margin-top: 60px;
+    width: 100%;
+    height: 520px;
+    overflow: hidden;
+  }
+  
+  .item {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    left: calc(50% - 160px);
+    top: 0;
+    -webkit-box-shadow: #04347d 5px 5px 14px 0.2px;
+    box-shadow: #04347d 5px 5px 14px 0.2px;
+  }
+  
+  .item h3 {
+    margin-top: -5px;
+    height: 60px;
+    font-size: 39px;
+    text-align: center;
+  }
+  
+  .item p {
+    padding-top: 30px;
+    font-size: 22px;
+  }
+  
+  #next {
+    position: absolute;
+    right: 20%;
+    top: 40%;
+  }
+  
+  #prev {
+    position: absolute;
+    left: 20%;
+    top: 40%;
+  }
+  
+  #prev,
+  #next {
+    background: none;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    opacity: 0.75;
+    -webkit-transition: opacity 0.75;
+    -o-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+    border-radius: 120px;
+  }
+  
+  #prev img,
+  #next img {
+    width: 80px;
+    border-radius: 120px;
+  }
+  
+  #prev:hover,
+  #next:hover {
+    opacity: 1;
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    .sectionFourthSlider {
+      min-height: 600px;
+    }
+  
+    .slider {
+      margin-top: 95px;
+      min-height: 600px;
+      width: 100%;
+    }
+  
+    #next {
+      right: 50px;
+      margin-top: 160px;
+    }
+  
+    #prev {
+      left: 50px;
+      margin-top: 160px;
+    }
+  
+    #prev,
+    #next {
+      font-size: 50px;
+    }
+  
+    .item {
+      height: 400px;
+      width: 250px;
+      padding: 15px;
+      -webkit-transition: 0.5s;
+      -o-transition: 0.5s;
+      transition: 0.5s;
+      left: calc(50% - 122.5px);
+    }
+  
+    .item h3 {
+      font-size: 30px;
+    }
+  
+    .item p {
+      font-size: 23px;
+    }
+  }
+  
+  @media only screen and (min-width: 854px) {
+    #next {
+      margin-top: 40px;
+    }
+  
+    #prev {
+      margin-top: 40px;
+    }
+  }
+  
+  /*INICIO FIFTH SECION*/
+  .fifthSectionContainer {
+    background: linear-gradient(to bottom, 
+    #000011, 
+    #000033 20%, 
+    #0a0a33 40%, 
+    #1c1c5c 60%, 
+    #171747 80%, 
+    #070707), 
+    radial-gradient(circle, rgba(255, 255, 255, 0.15) 2px, transparent 3px), 
+    radial-gradient(circle, rgba(255, 255, 255, 0.10) 1.5px, transparent 2.5px), 
+    radial-gradient(circle, rgba(214, 14, 14, 0.918) 1px, transparent 2px);
+background-size: 100% 100%, 50px 50px, 100px 100px, 150px 150px;
+    min-height: 80vh;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .fifthSectionContainer h2 {
+    top: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 28px;
+  }
+  
+  .fifthSectionContainer .imagesContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    width: 50%;
+    margin-top: 5px;
+  }
+  
+  .fifthSectionContainer .imagesContainer img {
+    -webkit-box-shadow: 0 0 10px rgb(95, 94, 94);
+    box-shadow: #ffffff 1px 1px 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 150px;
+    height: auto;
+    transition: 0.4s;
+  }
+  
+  .fifthSectionContainer .imagesContainer img:hover {
+    -webkit-box-shadow: #3e6db4 5px 5px 50px 0.2px, 0 0 20px rgb(211, 197, 67);
+    box-shadow: #3e6db4 5px 5px 50px 0.2px, 0 0 20px rgb(211, 197, 67);
+    transform: scale(1.1);
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .fifthSectionContainer {
+      h2 {
+        margin-top: -100px;
+      }
+    }
+  }
+  
+  @media only screen and (max-width: 629px) {
+    .fifthSectionContainer .imagesContainer {
+      width: 80%;
+    }
+    .fifthSectionContainer .imagesContainer img { width: 100px; }
+  }
+  
+  @media only screen and (max-width: 394px) {
+    .fifthSectionContainer .imagesContainer {
+      width: 100%;
+    }
+  }
+  
+  /*FOOTER*/
+  .footerContainer {
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+    background-color: black;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .footerContainer p.copyR {
+    color: rgba(197, 197, 197, 0.7);
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    min-height: 20px;
+    text-align: center;
+  }
+  
+  .footerContact {
+    padding-bottom: 100px;
+    width: 80%;
+    min-height: 400px;
+    background-color: black;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+  }
+  
+  .footerContact h3 {
+    color: white;
+  }
+  
+  .footerContact aside {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: black;
+    height: 100%;
+  }
+  
+  .footerContact aside a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: left;
+    -ms-flex-pack: left;
+    justify-content: left;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: white;
+    font-style: none;
+    text-decoration: none;
+    text-align: left;
+    height: 40px;
+    margin-top: 20px;
+  }
+  
+  .footerContact form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+    background-color: black;
+    min-width: 500px;
+    min-height: 300px;
+  }
+  
+  .footerContact form h4 {
+    color: white;
+    font-size: 37px;
+  }
+  
+  .footerContact form label {
+    color: #c5c5c5;
+    margin-bottom: -10px;
+  }
+  
+  .footerContact form input,
+  .footerContact form textarea {
+    width: 100%;
+    border-radius: 5px;
+    padding: 8px;
+  }
+  
+  .footerContact form button {
+    width: 80px;
+    height: 35px;
+    border-radius: 1000px;
+  }
+  
+  .footerContact form button:hover {
+    cursor: pointer;
+  }
+  
+  .socialNetwork span {
+    color: rgb(197, 197, 197);
+  }
+  
+  .socialNetwork svg {
+    padding-right: 10px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .facebook svg {
+    width: 50px;
+    height: 50px;
+    margin-left: -5px;
+  }
+  
+  @media only screen and (max-width: 1115px) {
+    .footerContact {
+      width: 100%;
+    }
+  }
+  
+  @media only screen and (max-width: 819px) {
+    .footerContact {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+    .footerContact aside {
+      margin-top: 80px;
+    }
+  }
+  
+  @media only screen and (max-width: 585px) {
+    .footerContact form {
+      min-width: 100px;
+      width: 90%;
+    }
+  
+    .footerContact form label {
+      margin-bottom: 0px;
+    }
+  
+    .footerContainer .copyR {
+      font-size: 12px;
+    }
+  }

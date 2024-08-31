@@ -1,0 +1,966 @@
+/*GENERALES*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+  }
+  
+  /*INICIO NAVIGATOR*/
+  .mainNav {
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    position: fixed;
+  }
+  /*Menu Desktop*/
+  .menuDesktopContainer {
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  
+  .menuDesktop {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    width: 90%;
+    -ms-flex-pack: distribute;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    
+  }
+  
+  .menuDesktop li {
+    list-style: none;
+  }
+  
+  .menuDesktop li .logoNav {
+    height: 50px;
+    width: 150px;
+  }
+  
+  .menuDesktop li a {
+    text-decoration: none;
+    color: white;
+    -webkit-transition: -webkit-text-decoration 0.3s ease;
+    transition: -webkit-text-decoration 0.3s ease;
+    -o-transition: text-decoration 0.3s ease;
+    transition: text-decoration 0.3s ease;
+    transition: text-decoration 0.3s ease, -webkit-text-decoration 0.3s ease;
+  }
+  
+  .menuDesktop li a:hover {
+    text-decoration: underline;
+  }
+  
+  /*Menu Phone*/
+  .menuPhoneContainer,
+  .menuPhoneContainer *,
+  .menuPhoneContainer *::before,
+  .menuPhoneContainer *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  .menuPhoneContainer {
+    width: 100%;
+    background-color: black;
+    display: none;
+    flex-direction: row;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .menuPhoneContainer .logoNav {
+    height: 70px;
+    width: 210px;
+  }
+  
+  .hamburger {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 20px;
+  }
+  
+  .hamburger:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    background: #f953c6; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(#7a7a7a),
+      to(#ffdbdb)
+    );
+    background: -o-linear-gradient(left, #7a7a7a, #ffdbdb);
+    background: linear-gradient(
+      to right,
+      #7a7a7a,
+      #ffdbdb
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-transition: all 0.4s cubic-bezier(0.54, -0.1, 0.57, 0.57);
+    -o-transition: all 0.4s cubic-bezier(0.54, -0.1, 0.57, 0.57);
+    transition: all 0.4s cubic-bezier(0.54, -0.1, 0.57, 0.57);
+  }
+  
+  .hamburger-input {
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+  }
+  
+  .hamburger-line {
+    width: 100%;
+    background: black;
+    height: 2px;
+    display: block;
+    border-radius: 6px;
+    -webkit-transition: -webkit-transform 0.4s
+      cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    -o-transition: transform 0.4s cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    transition: transform 0.4s cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    position: relative;
+  }
+  
+  .hamburger-line.first,
+  .hamburger-line.third {
+    width: 50%;
+  }
+  
+  .hamburger-line.third {
+    margin-left: 50%;
+    -webkit-transform-origin: left;
+    -ms-transform-origin: left;
+    transform-origin: left;
+  }
+  
+  .menu-button-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  
+  .menu-button-wrapper .item-list {
+    position: absolute;
+    top: 91px;
+    transform: translateX(-50%) scale(0);
+    transform-origin: center;
+    transition: all 0.4s cubic-bezier(0.54, -0.1, 0.57, 0.57);
+    background-color: black;
+    color: #fff;
+    width: 200px;
+    right: -60;
+    padding: 15px 0;
+    text-align: left;
+    border-radius: 100px;
+    font-weight: 300;
+    opacity: 0;
+    user-select: none;
+    border: 1px solid #fff;
+  }
+  
+  .menu-button-wrapper .item-list div {
+    padding: 10px 30px;
+  }
+  
+  .menu-button-wrapper .item-list div a {
+    text-align: left;
+    text-decoration: none;
+    padding-right: 80px;
+    cursor: pointer;
+    width: 100%;
+    color: #fff;
+    font-weight: 300;
+  }
+  
+  .menu-button-wrapper .menu-button {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    right: 0;
+    align-self: flex-end;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
+  .menu-button-wrapper .icon-wrapper {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    right: 0;
+    align-self: flex-end;
+    z-index: 1;
+    opacity: 1;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
+  .menu-button:checked ~ .item-list {
+    transform: translateX(-50%) scale(1);
+    border-radius: 20px;
+    opacity: 1;
+    user-select: auto;
+  }
+  
+  .menu-button:checked ~ .icon-wrapper .hamburger-line.second {
+    transform: rotate(-45deg);
+  }
+  
+  .menu-button:checked ~ .icon-wrapper .hamburger-line.first {
+    transform: translate(2px, 8px) rotate(-135deg);
+  }
+  
+  .menu-button:checked ~ .icon-wrapper .hamburger-line.third {
+    transform: translate(11px, -3px) rotate(-135deg);
+  }
+  
+  .menu-button:checked ~ .icon-wrapper .hamburger:before {
+    transform: rotate(45deg);
+  }
+  
+  /****/
+  .signature-wrapper {
+    margin-top: 150px;
+    margin-bottom: 100px;
+    text-align: center;
+  }
+  .signature-wrapper .signature-title {
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: normal;
+    color: #444;
+  }
+  
+  .signature-wrapper .signature-link {
+    color: #444;
+    display: inline-block;
+    margin: 20px 0 10px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    border-bottom: solid 2px #444;
+  }
+  
+  /*****/
+  @media only screen and (max-width: 861px) {
+    .menuDesktop {
+      width: 90%;
+    }
+  }
+  
+  @media only screen and (max-width: 720px) {
+    .menuDesktopContainer {
+      display: none;
+    }
+    .menuPhoneContainer {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+  }
+  
+  @media only screen and (max-width: 350px) {
+    .menuPhoneContainer .logoNav {
+      height: 60px;
+      width: 180px;
+    }
+  }
+  
+  /*FÍN NAVIGATOR */
+  
+  /*INICIO FIRST SECTION*/
+  .firstSectionContainer {
+    /*background-image: url("https://github.githubassets.com/images/modules/site/home/hero-glow.svg");*/
+    width: 100%;
+    height: 50vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  #globeCanvas {
+    height: 50vw;
+    width: 50vw;
+  }
+  
+
+  .firstSectionContainer {
+    position: relative;
+    /*background-color: #040d21;*/
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  
+  .principalText {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    color: white;
+    height: 50vh;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 50px;
+  }
+  
+  .principalText h1,
+  .principalText h2 {
+    font-size: 70px;
+  }
+  
+  .principalText h1,
+  .principalText h2,
+  .principalText span {
+    margin-top: 5px;
+    width: 100%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: left;
+  }
+  
+  .principalText span {
+    color: #c5c5c5;
+    font-size: 30px;
+  }
+  
+  @media only screen and (max-width: 651px) {
+    .firstSectionContainer {
+        height: 100vh;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+    .principalText {
+      padding-top: 150px;
+      height: 50vh;
+      margin-left: 0px;
+    }
+    .principalText h1,
+    .principalText h2 {
+      font-size: 45px;
+    }
+    .principalText span {
+        color: #c5c5c5;
+        font-size: 20px;
+    }
+    #globeCanvas {
+      margin-top: -150px;
+      height: 80vw;
+      width: 80vw;
+    }
+  }
+  
+  @media only screen and (max-width: 435px) {
+    #globeCanvas {
+      margin-top: 50px;
+    }
+  }
+  
+  /*FÍN FIRST SECTION*/
+  
+  /*INICIO SECOND SECTION*/
+  .secondSectionContainer {
+    /*background-color: black;*/
+    background-image: url("https://github.githubassets.com/images/modules/site/home/hero-glow.svg");
+    padding-top: 160px;
+    padding-bottom: 160px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .info {
+    height: auto;
+  }
+  
+  .secondSectioninfoContainer {
+    user-select: none;
+    -moz-user-select: none; /* Para Firefox */
+    -webkit-user-select: none; /* Para Chrome, Safari, y Opera */
+    -ms-user-select: none; /* Para Internet Explorer */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+    width: auto;
+    height: auto;
+  }
+  
+  .box {
+    height: auto;
+    width: 450px;
+    border: 2px solid rgb(12, 12, 12);
+    text-align: center;
+    background-color: black;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    -webkit-box-shadow: #04347d 2px 2px 14px 0.2px;
+    box-shadow: #04347d 2px 2px 14px 0.2px;
+    transition: .3s ease-in-out;
+  }
+  .box:hover {
+    -webkit-box-shadow: #babbbd 2px 2px 14px 0.2px;
+    box-shadow: #babbbd 2px 2px 14px 0.2px;
+    transform: scale(1.03);
+  }
+  .bigbox h1 {
+    color: white;
+  }
+  
+  .bigbox p {
+    color: white;
+    line-height: 24px;
+  }
+  
+  .bigbox {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 10px;
+  }
+  .bigbox:hover {
+    color: aliceblue;
+  }
+  
+  .secondSectionVideoContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+  }
+  
+  .secondSectionVideoContainer video {
+    z-index: 100;
+    border-radius: 8px;
+    width: 600px;
+    height: auto;
+    -webkit-box-shadow: 5px 5px 25px rgb(99, 96, 96);
+    box-shadow: 5px 5px 25px rgb(99, 96, 96);
+    border: 1px solid rgba(255, 255, 255, .5);
+  }
+  
+  @media only screen and (max-width: 1052px) {
+    .secondSectionContainer {
+      height: auto;
+      padding-bottom: 70px;
+    }
+    .secondSectioninfoContainer {
+      width: 100%;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+    .secondSectionVideoContainer video {
+      margin-bottom: 5px;
+      width: 80%;
+    }
+  }
+  
+  @media only screen and (max-width: 555px) {
+    .secondSectionContainer {
+      padding-bottom: 20px;
+    }
+    .box {
+      width: 90%;
+    }
+  }
+  /*FÍN SECOND SECTION*/
+  
+  .ThirdSectionContainer {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  
+  :root {
+    /** color system **/
+    --system-color-dark: oklch(0% 0 0);
+    --system-color-light: oklch(100% 0 0);
+    --system-color-logo: oklch(60.07% 0.241 28.73 / 80%);
+    --system-color-red-100: oklch(60.07% 0.241 28.73 / 25%);
+    --system-color-red-200: oklch(60.07% 0.241 28.73 / 50%);
+    --system-color-red-300: oklch(60.07% 0.241 28.73 / 100%);
+  
+    /** color themes **/
+    --system-color-theme-paths: var(--system-color-red-100)
+      var(--system-color-red-300);
+    --system-color-theme-planets: var(--system-color-red-200)
+      var(--system-color-red-200) var(--system-color-red-200)
+      var(--system-color-red-300);
+  
+    /** planet's radius **/
+    /* ♂ Mars real radius ≈ 3389.5km. */
+    --planet-radius-mars: 33.895px;
+    /* 🜨 Earth real radius ≈ 6371km. */
+    --planet-radius-earth: 63.71px;
+    /* ♀ Venus real radius ≈ 6051.8km. */
+    --planet-radius-venus: 60.518px;
+    /* ☿ Mercury real radius ≈ 2439.7km. */
+    --planet-radius-mercury: 24.397px;
+    /* ☉ Sun real radius ≈ 696340km (40 times smaller compared to the planet's dimensions values). */
+    --star-radius-sun: 174.085px;
+  
+    /** planet's trajectories **/
+    --planet-trajectory-mars: 446.085px;
+    --planet-trajectory-earth: 332.085px;
+    --planet-trajectory-venus: 257.085px;
+    --planet-trajectory-mercury: 203.085px;
+  
+    /** units **/
+    --system-margin-mars: 292px;
+    --system-margin-earth: 35px;
+    --system-margin-venus: 15px;
+    --system-margin-mercury: 38px;
+    --system-border-width: min(2px, 0.4vmin);
+  }
+  
+  *,
+  *::after,
+  *::before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .ThirdSectionContainer {
+    overflow: hidden;
+    
+  
+    /* ☛ ⚠ The distances between the planets and the Sun are not respected because of the diameter of it.
+        Also note that for aesthetic reasons, the planet's trajectories are not elliptical and are not oriented as they should be. */
+  
+    & .solar-system {
+      margin-top: 20px;
+      margin-left: -35vw;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+  
+      width: 100%;
+      height: 100%;
+  
+      -ms-transform: skewX(-45deg);
+  
+      transform: skewX(-45deg);
+      -webkit-transform: skewX(-45deg);
+  
+      & .solar-system__sun {
+        z-index: 1;
+  
+        /* ☛ ⚠ Size of the Sun is not respected here. */
+        aspect-ratio: 1;
+        inline-size: var(--star-radius-sun);
+        border-radius: 50%;
+  
+        background-color: var(--system-color-red-300);
+        background: -o-linear-gradient(
+          315deg,
+          var(--system-color-red-300) 20%,
+          transparent
+        );
+        background: linear-gradient(
+          135deg,
+          var(--system-color-red-300) 20%,
+          transparent
+        );
+  
+        filter: drop-shadow(0px 0px 2px var(--system-color-red-300)) blur(1px);
+        -webkit-filter: drop-shadow(0px 0px 2px var(--system-color-red-300))
+          blur(1px);
+  
+        -ms-transform: skewX(45deg);
+  
+        transform: skewX(45deg);
+        -webkit-transform: skewX(45deg);
+      }
+  
+      & article:not(.solar-system__sun) {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+  
+        position: relative;
+        z-index: 2;
+  
+        aspect-ratio: 1;
+        border-radius: 50%;
+  
+        background: transparent;
+  
+        border-width: var(--system-border-planets-width);
+        border-style: solid;
+        border-color: var(--system-color-theme-planets);
+  
+        &::after {
+          position: inherit;
+          content: "";
+          aspect-ratio: 1;
+          inline-size: 40%;
+          border-radius: inherit;
+  
+          background: var(--system-color-red-300);
+  
+          -webkit-filter: drop-shadow(0px 0px 4.8px var(--system-color-red-200))
+            blur(0.5px);
+          filter: drop-shadow(0px 0px 4.8px var(--system-color-red-200))
+            blur(0.5px);
+        }
+      }
+  
+      & section {
+        position: absolute;
+        z-index: 2;
+        aspect-ratio: 1;
+  
+        border-radius: 50%;
+  
+        border-width: var(--system-border-width);
+        border-style: solid;
+        border-color: var(--system-color-theme-paths);
+      }
+  
+      & .solar-system__mercury-trajectory {
+        inline-size: var(--planet-trajectory-mercury);
+  
+        /* ☿ Mercury revolution duration ≈ 87.969 days. */
+        -webkit-animation: revolution 43.9845s linear infinite;
+        animation: revolution 43.9845s linear infinite;
+  
+        & .solar-system__mercury-trajectory__mercury {
+          inline-size: var(--planet-radius-mercury);
+          top: var(--system-margin-mercury);
+  
+          /* ☿ Mercury rotation period ≈ 58.645 days. */
+          -webkit-animation: revolution 29.3225s linear infinite;
+          animation: revolution 29.3225s linear infinite;
+        }
+      }
+  
+      & .solar-system__venus-trajectory {
+        inline-size: var(--planet-trajectory-venus);
+  
+        /* ♀ Venus revolution duration ≈ 224.667 days. */
+        -webkit-animation: revolution 112.3335s linear infinite;
+        animation: revolution 112.3335s linear infinite;
+  
+        & .solar-system__venus-trajectory__venus {
+          inline-size: var(--planet-radius-venus);
+          top: var(--system-margin-venus);
+  
+          /* ♀ Venus rotation period ≈ 243.023 days. */
+          -webkit-animation: revolution 121.513s linear infinite;
+          animation: revolution 121.513s linear infinite;
+        }
+      }
+  
+      & .solar-system__earth-trajectory {
+        inline-size: var(--planet-trajectory-earth);
+  
+        /* 🜨 Earth revolution duration ≈ 365.2422 days. */
+        -webkit-animation: revolution 182.6211s linear infinite;
+        animation: revolution 182.6211s linear infinite;
+  
+        & .solar-system__earth-trajectory__earth {
+          inline-size: var(--planet-radius-earth);
+          top: var(--system-margin-earth);
+  
+          /* ✑ animation-duration: .5s ≈ 24 hours on Earth. */
+          -webkit-animation: revolution 0.4874s linear infinite;
+          animation: revolution 0.4874s linear infinite;
+  
+          &::after {
+            -webkit-animation: blink 2s linear infinite;
+            animation: blink 2s linear infinite;
+          }
+        }
+      }
+  
+      & .solar-system__mars-trajectory {
+        inline-size: var(--planet-trajectory-mars);
+  
+        /* ♂ Mars revolution duration ≈ 686.885 days. */
+        -webkit-animation: revolution 343.4425s linear infinite;
+        animation: revolution 343.4425s linear infinite;
+  
+        & .solar-system__mars-trajectory__mars {
+          inline-size: var(--planet-radius-mars);
+          top: var(--system-margin-mars);
+  
+          /* ✑ animation-duration: .5s ≈ 24 hours on Earth. */
+          -webkit-animation: revolution 0.5128s linear infinite;
+          animation: revolution 0.5128s linear infinite;
+        }
+      }
+    }
+    & #logo {
+      inline-size: 8vmin;
+      aspect-ratio: 1;
+      position: absolute;
+      inset: auto 1.6vmin 1.6vmin auto;
+  
+      opacity: 0.3;
+      -webkit-filter: saturate(60%);
+      filter: saturate(60%);
+  
+      -webkit-transition: opacity 0.7s linear, -webkit-filter 0.7s linear;
+  
+      transition: opacity 0.7s linear, -webkit-filter 0.7s linear;
+  
+      -o-transition: opacity 0.7s linear, filter 0.7s linear;
+  
+      transition: opacity 0.7s linear, filter 0.7s linear;
+  
+      transition: opacity 0.7s linear, filter 0.7s linear,
+        -webkit-filter 0.7s linear;
+  
+      & circle {
+        -webkit-fill: var(--system-color-logo);
+        fill: var(--system-color-logo);
+      }
+  
+      & path {
+        -webkit-fill: var(--system-color-dark);
+        fill: var(--system-color-dark);
+      }
+  
+      &:hover {
+        opacity: 1;
+        -webkit-filter: saturate(100%);
+        filter: saturate(100%);
+      }
+    }
+  }
+  
+  /*
+    ▀▄▀▄▀▄▀▄▀▄▀▄ ANIMATIONS ▀▄▀▄▀▄▀▄▀▄▀▄
+    */
+  
+  @-webkit-keyframes revolution {
+    to {
+      -webkit-transform: rotateZ(1turn);
+      transform: rotateZ(1turn);
+    }
+  }
+  
+  @keyframes revolution {
+    to {
+      -webkit-transform: rotateZ(1turn);
+      transform: rotateZ(1turn);
+    }
+  }
+  
+  @-webkit-keyframes blink {
+    to {
+      background-color: var(--system-color-dark);
+  
+      -webkit-filter: drop-shadow(0 0 0 var(--system-color-red-200)) blur(0);
+  
+      filter: drop-shadow(0 0 0 var(--system-color-red-200)) blur(0);
+    }
+  }
+  
+  @keyframes blink {
+    to {
+      background-color: var(--system-color-dark);
+  
+      -webkit-filter: drop-shadow(0 0 0 var(--system-color-red-200)) blur(0);
+  
+      filter: drop-shadow(0 0 0 var(--system-color-red-200)) blur(0);
+    }
+  }
+  
+  /*** ◰ media queries ***/
+  /** smartphone **/
+  @media screen and (width < 768px) {
+    .ThirdSectionContainer {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      & .solar-system {
+        margin-top: 20px;
+        & .solar-system__sun {
+          inline-size: calc(var(--star-radius-sun) / 2);
+        }
+        & .solar-system__mercury-trajectory {
+          inline-size: calc(var(--planet-trajectory-mercury) / 2);
+  
+          & .solar-system__mercury-trajectory__mercury {
+            inline-size: calc(var(--planet-radius-mercury) / 2);
+  
+            top: calc(var(--system-margin-mercury) - 20px);
+          }
+        }
+  
+        & .solar-system__venus-trajectory {
+          inline-size: calc(var(--planet-trajectory-venus) / 2);
+  
+          & .solar-system__venus-trajectory__venus {
+            inline-size: calc(var(--planet-radius-venus) / 2);
+  
+            top: calc(var(--system-margin-venus) - 9px);
+          }
+        }
+  
+        & .solar-system__earth-trajectory {
+          inline-size: calc(var(--planet-trajectory-earth) / 2);
+  
+          & .solar-system__earth-trajectory__earth {
+            inline-size: calc(var(--planet-radius-earth) / 2);
+  
+            top: calc(var(--system-margin-earth) - 19px);
+          }
+        }
+  
+        & .solar-system__mars-trajectory {
+          inline-size: calc(var(--planet-trajectory-mars) / 2);
+  
+          & .solar-system__mars-trajectory__mars {
+            inline-size: calc(var(--planet-radius-mars) / 2);
+  
+            top: calc(var(--system-margin-mars) - 234px);
+          }
+        }
+      }
+    }
+  }
