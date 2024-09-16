@@ -1,18 +1,23 @@
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/index.css" />
-    <link rel="stylesheet" href="styles/styleslegacy01.css" />
-    <link rel="stylesheet" href="styles/styleslegacy02.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styleslegacy01.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styleslegacy02.css' %}" />
     <meta
       name="description"
       content="Desarrollo de software a medida para tu negocio. ofrecemos servicios de desarrollo confiables y personalizados para impulsar la innovación y el crecimiento de tu empresa. ¡Contáctanos hoy para llevar tus ideas a la realidad digital!"
     />
-    <link rel="icon" href="/media/icono.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="/media/icono.ico" />
+    <link rel="icon" href="{% static 'img/icono.ico' %}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="{% static 'img/icono.ico' %}" />
     <title>SaitDigital</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+   
     <script>
       $(document).ready(function () {
         reveal()
@@ -27,17 +32,38 @@
             data: { email: $("#email").val(), message: $("#message").val() },
             success: function (response) {
               if (response.status == true) {
-                alert("Mensaje enviado con éxito, nos comunicaremos con usted lo antes posible")
+                Swal.fire({
+                  title: "Mensaje enviado con éxito",
+                  text: "Nos comunicaremos con usted lo antes posible. Gracias por preferirnos!",
+                  icon: "success"
+                });
               }
               if (response.status == false) {
                 alert(response.message)
+                Swal.fire({
+                  title: "Algo salió mal!",
+                  text: response.message,
+                  icon: "warning"
+                });
               }
             },
             error: function (error) {
               alert("Servicios de Google en mantenimiento, por favor elegir otro medio de contacto")
             }
           })
-      });})
+      });
+    })
+
+    function disabledService (event) {
+        console.log("si1")
+        event.preventDefault();
+        console.log("si2")
+        Swal.fire({
+          title: "Actualizando Servicio",
+          text: "Estamos trabajando para brindarte nuestros servicios en su mejor versión.",
+          icon: "info"
+        });
+      }
       
     </script>
   </head>
@@ -54,7 +80,7 @@
             >
           </li>
           <li><a href="#" onclick="scrollToSection(event, 'faqs')">Faqs</a></li>
-          <li><img class="logoNav" src="/media/logoheader.png" /></li>
+          <li><img class="logoNav" src="{% static 'img/logoheader.png' %}" /></li>
           <li>
             <a href="#" onclick="scrollToSection(event, 'separator34')"
               >Beneficios</a
@@ -70,10 +96,22 @@
               >Contacto</a
             >
           </li>
+          <li>
+            <div class="dropdown">
+              <button class="btn text-light btn-black dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Productos
+              </button>
+              <ul class="dropdown-menu">
+                <li><button onclick="disabledService(event)" class="dropdown-item" type="button">Firma Electrónica</button></li>
+                <li><button onclick="disabledService(event)" class="dropdown-item" type="button">Facturación Electrónica</button></li>
+                
+              </ul>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="menuPhoneContainer">
-        <div><img class="logoNav" src="/media/logoheader.png" /></div>
+        <div><img class="logoNav" src="{% static 'img/logoheader.png' %}" /></div>
         <label class="menu-button-wrapper" for="">
           <input type="checkbox" class="menu-button" />
           <div class="icon-wrapper">
@@ -110,6 +148,16 @@
               <a href="#" onclick="scrollToSection(event, 'scrollmessage')"
                 >Contacto</a
               >
+            </div>
+            <div class="dropdown"></div>
+              <button class=" ms-3 btn text-light btn-black dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Productos
+              </button>
+              <ul class="dropdown-menu">
+                <li><button onclick="disabledService(event)" class="dropdown-item" type="button">Firma Electrónica</button></li>
+                <li><button onclick="disabledService(event)" class="dropdown-item" type="button">Facturación Electrónica</button></li>
+                
+              </ul>
             </div>
           </div>
         </label>
@@ -171,7 +219,7 @@
           </div>
         </div>
         <article class="secondSectionVideoContainer">
-          <video controls src="/media/SaitDigitalPresentacion.webm"></video>
+          <video controls src="{% static 'img/SaitDigitalPresentacion.webm' %}"></video>
         </article>
       </main>
     </section>
@@ -373,10 +421,10 @@
                   </p>
                 </div>
                 <button id="next">
-                  <img src="/media/flechabgbder.png" />
+                  <img src="{% static 'img/flechabgbder.png' %}" />
                 </button>
                 <button id="prev">
-                  <img src="/media/flechabgbizq.png" />
+                  <img src="{% static 'img/flechabgbizq.png' %}" />
                 </button>
               </div>
             </div>
@@ -389,19 +437,19 @@
       <h2>Quienes confian en SaitDigital</h2>
       <div class="imagesContainer">
         <img
-          src="/media/clientes/ceac.png"
+          src="{% static 'img/clientes/ceac.png' %}"
           alt="Centro De Soluciones Académicas"
         />
-        <img src="/media/clientes/devcrafters.png" alt="DevCrafters" />
+        <img src="{% static 'img/clientes/devcrafters.png' %}" alt="DevCrafters" />
       </div>
       <div class="imagesContainer">
-        <img src="/media/clientes/greenbite.png" alt="GreenBite" />
-        <img src="/media/clientes/sabrosito.png" alt="Restaurante Sabrosito" />
+        <img src="{% static 'img/clientes/greenbite.png' %}" alt="GreenBite" />
+        <img src="{% static 'img/clientes/sabrosito.png' %}" alt="Restaurante Sabrosito" />
       </div>
       <div class="imagesContainer">
-        <img src="/media/clientes/urbanspace.png" alt="UrbanSpace" />
+        <img src="{% static 'img/clientes/urbanspace.png' %}" alt="UrbanSpace" />
         <img
-          src="/media/clientes/planningadventures.png"
+          src="{% static 'img/clientes/planningadventures.png' %}"
           alt="PlanningTravelAdventures"
         />
       </div>
@@ -419,16 +467,16 @@
         >
           <h4>Envíanos un mensaje</h4>
 
-          <label for="email">Correo electrónico</label>
+          <label class="p-2" for="email">Correo electrónico</label>
           <input
-            placeholder="Escriba su Gmail aquí"
+            placeholder="Escriba su correo electrónico aquí"
             type="email"
             id="email"
             name="email"
             required
           />
 
-          <label for="mensaje">¿En qué podemos ayudarte?</label>
+          <label class="pt-3 pb-3" for="mensaje">¿En qué podemos ayudarte?</label>
           <textarea
             placeholder="Escriba su mensaje aquí"
             type="text"
@@ -606,10 +654,11 @@
     <!--Fín Sexta seccion-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="scripts/index.js"></script>
-    <script src="scripts/mundo.js"></script>
-    <script src="scripts/nav.js"></script>
-    <script src="scripts/slider.js"></script>
-    <script src="scripts/faqs.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+    <script src="{% static 'js/mundo.js' %}"></script>
+    <script src="{% static 'js/nav.js' %}"></script>
+    <script src="{% static 'js/slider.js' %}"></script>
+    <script src="{% static 'js/faqs.js' %}"></script>
   </body>
 </html>

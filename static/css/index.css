@@ -1,7 +1,4 @@
-html, body {
-    margin:0;
-      background-color:#000;
-  }
+
   .instructions {
       position:absolute;
       z-index:1;
