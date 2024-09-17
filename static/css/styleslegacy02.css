@@ -297,6 +297,7 @@
     height: 60px;
     font-size: 39px;
     text-align: center;
+    font-weight: bold;
   }
   
   .item p {
@@ -307,13 +308,13 @@
   #next {
     position: absolute;
     right: 20%;
-    top: 40%;
+    top: 42%;
   }
   
   #prev {
     position: absolute;
     left: 20%;
-    top: 40%;
+    top: 42%;
   }
   
   #prev,
@@ -368,15 +369,16 @@
   
     .item {
       height: 400px;
-      width: 250px;
+      width: 290px;
       padding: 15px;
       -webkit-transition: 0.5s;
       -o-transition: 0.5s;
       transition: 0.5s;
-      left: calc(50% - 122.5px);
+      left: calc(50% - 135.5px);
     }
   
     .item h3 {
+      height: 38px;
       font-size: 30px;
     }
   
