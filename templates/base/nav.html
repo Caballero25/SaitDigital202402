@@ -1,0 +1,95 @@
+{% load static %}
+<nav class="mainNav">
+    <div class="menuDesktopContainer">
+      <ul class="menuDesktop">
+        <li>
+          <a href="#" onclick="location.href='/#inicio';">Inicio</a>
+        </li>
+        <li>
+          <a href="#" onclick="location.href='/#conocenos';"
+            >Conócenos</a
+          >
+        </li>
+        <li><a href="#" onclick="location.href='/#faqs';">Faqs</a></li>
+        <li><img class="logoNav" src="{% static 'img/logoheader.png' %}" /></li>
+        <li>
+          <a href="#" onclick="location.href='/#separator34';"
+            >Beneficios</a
+          >
+        </li>
+        <li>
+          <a href="#" onclick="location.href='/#separator45';"
+            >Clientes</a
+          >
+        </li>
+        <li>
+          <a href="#" onclick="location.href='/#separator56';"
+            >Contacto</a
+          >
+        </li>
+        <li>
+          <div class="dropdown">
+            <button class="btn text-light btn-black dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Productos
+            </button>
+            <ul class="dropdown-menu">
+              <li><button onclick="window.location.href='/signServices/signPDF';" class="dropdown-item" type="button">Firma Electrónica</button></li>
+              <li><button onclick="disabledService(event)" class="dropdown-item" type="button">Facturación Electrónica</button></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="menuPhoneContainer">
+      <div><img class="logoNav" src="{% static 'img/logoheader.png' %}" /></div>
+      <label class="menu-button-wrapper" for="">
+        <input type="checkbox" class="menu-button" />
+        <div class="icon-wrapper">
+          <label class="hamburger">
+            <input class="hamburger-input" type="checkbox" />
+            <span class="hamburger-line first"></span>
+            <span class="hamburger-line second"></span>
+            <span class="hamburger-line third"></span>
+          </label>
+        </div>
+        <div class="item-list">
+          <div>
+            <a href="#" onclick="location.href='/#inicio';">Inicio</a>
+          </div>
+          <div>
+            <a href="#" onclick="location.href='/#conocenos';"
+              >Conócenos</a
+            >
+          </div>
+          <div>
+            <a href="#" onclick="location.href='/#faqs';">Faqs</a>
+          </div>
+          <div>
+            <a href="#" onclick="location.href='/#beneficios';"
+              >Beneficios</a
+            >
+          </div>
+          <div>
+            <a href="#" onclick="location.href='/#separator45';"
+              >Clientes</a
+            >
+          </div>
+          <div>
+            <a href="#" onclick="location.href='/#scrollmessage';"
+              >Contacto</a
+            >
+          </div>
+          <div class="dropdown"></div>
+            <button class=" ms-3 btn text-light btn-black dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Productos
+            </button>
+            <ul class="dropdown-menu">
+              <li><button onclick="window.location.href='/signServices/signPDF';" class="dropdown-item" type="button">Firma Electrónica</button></li>
+              <li><button onclick="disabledService(event)" class="dropdown-item" type="button">Facturación Electrónica</button></li>
+              
+            </ul>
+          </div>
+        </div>
+      </label>
+    </div>
+  </nav>

@@ -46,6 +46,7 @@ LIB_APPS = [
 PROJECT_APPS = [
     'home',
     'emailservices',
+    'signatures',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LIB_APPS + PROJECT_APPS
