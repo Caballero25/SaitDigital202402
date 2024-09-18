@@ -24,7 +24,7 @@
         $( "#formContact" ).on( "submit", function( event ) {
           event.preventDefault();
           $.ajax({
-            url: "https://emailsendersd.pythonanywhere.com/email/sender",
+            url: "/emailservices/sendEmailContact/",
             headers: {
                 "Accept":"*/*",
              },
@@ -39,7 +39,6 @@
                 });
               }
               if (response.status == false) {
-                alert(response.message)
                 Swal.fire({
                   title: "Algo salió mal!",
                   text: response.message,

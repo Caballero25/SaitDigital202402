@@ -40,11 +40,12 @@ DJANGO_APPS = [
 ]
 
 LIB_APPS = [
-    
+    'rest_framework',
 ]
 
 PROJECT_APPS = [
     'home',
+    'emailservices',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LIB_APPS + PROJECT_APPS
