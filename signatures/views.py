@@ -9,8 +9,9 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from .forms import DocumentForm
 import datetime
+from django.views.decorators.csrf import csrf_protect
 
-##############           PRUEBA 01 ################################## BUENA ########################################################################
+@csrf_protect
 def signPDF(request):
     if request.method == 'POST':
         try:
